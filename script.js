@@ -39,5 +39,31 @@ let data = [{
 
 window.onload = function(){
 
+loadCourseList()
+
 }
 
+function loadCourseList(){
+
+    const courseDropdown = document.getElementById("courseDropdown");
+
+    //adding Select One element e.g <option value="">Select One...</option>
+    let selectOneOption = new Option("Select One...")
+    selectOneOption.value = "";
+    courseDropdown.appendChild(selectOneOption)
+
+    for(let i = 0; i < data.length; i++){
+        //createElementById to create stuff on index.html
+        let theOption = document.createElement("option");
+
+        //comp says lets go to the option tag and set properties
+        theOption.textContent = data[i].Title
+
+        //option tag also has value
+        theOption.value = data[i].CourseId
+
+        //add option to the <select> element
+        courseDropdown.appendChild(theOption)
+    }
+
+}
